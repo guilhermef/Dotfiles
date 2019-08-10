@@ -1,6 +1,8 @@
 # Dotfiles
 My personal Dotfiles
 
+![Terminal](https://github.com/guilhermef/Dotfiles/blob/master/example/term.png?raw=true)
+
 ## Setup
 
 Run `dot.sh` for seting up, other specific steps given below.
