@@ -17,11 +17,11 @@ if [[ "$arg" == "-i" || "$arg" == "--install" ]]; then
     case $option in
 
     "1")echo -e "\u001b[7mInstalling Prezto...\u001b[0m"
-        # git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+        git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
         for file in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/z*; do
             filename=$(basename $file)
             echo .$filename
-            # ln -s "$filename" "${ZDOTDIR:-$HOME}/.${filename:t}"
+            ln -s "$filename" "${ZDOTDIR:-$HOME}/.${filename:t}"
         done
         ;;
 
