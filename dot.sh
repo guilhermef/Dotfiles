@@ -48,6 +48,7 @@ mv -iv ~/.zshrc ~/.zshrc.old
 echo -e "\u001b[36;1mAdding symlinks...\u001b[0m"
 ln -sfnv $PWD/.zpreztorc ~/.zpreztorc
 ln -sfnv $PWD/.zshrc ~/.zshrc
+ln -sfnv $PWD/.p10k.sh ~/.p10k.sh
 
 echo -e "\u001b[36;1m Remove backups with 'rm ~/.*.old && rm ~/.config/*.old'. \u001b[0m"
 echo -e "\u001b[32;1m Completed. \u001b[0m"

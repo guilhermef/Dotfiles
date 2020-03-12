@@ -1,22 +1,9 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
-POWERLEVEL9K_MODE='nerdfont-complete'
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon virtualenv dir)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vcs status command_execution_time)
-POWERLEVEL9K_VCS_HIDE_TAGS=true
-POWERLEVEL9K_VCS_GIT_HOOKS=(git-remotebranch)
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_PRECISION=3
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
-POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR="%F{232}\uE0BD%f"
-POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR="%F{232}\uE0BD%f"
-POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR='▓▒░'
-POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR='░▒▓'
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
@@ -24,3 +11,6 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 source "${HOME}/aliases.sh"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
