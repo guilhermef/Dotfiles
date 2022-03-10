@@ -10,10 +10,9 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-if [[ -s "source ${HOME}/aliases.sh" ]]; then
-  source "source ${HOME}/aliases.sh"
+if [[ -s "${HOME}/aliases.sh" ]]; then
+  source "${HOME}/aliases.sh"
 fi
-
 
 
 export PATH=${HOME}/bin:${PATH}
