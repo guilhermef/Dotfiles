@@ -41,6 +41,7 @@
     os_icon                 # os identifier
     dir                     # current directory
     vcs                     # git status
+    my_aws_vault_profile
     # =========================[ Line #2 ]=========================
     newline                 # \n
     # prompt_char           # prompt symbol
@@ -59,7 +60,7 @@
     # asdf                    # asdf version manager (https://github.com/asdf-vm/asdf)
     virtualenv              # python virtual environment (https://docs.python.org/3/library/venv.html)
     # anaconda                # conda environment (https://conda.io/)
-    # pyenv                   # python environment (https://github.com/pyenv/pyenv)
+    pyenv                   # python environment (https://github.com/pyenv/pyenv)
     goenv                   # go environment (https://github.com/syndbg/goenv)
     nodenv                  # node.js version from nodenv (https://github.com/nodenv/nodenv)
     # nvm                     # node.js version from nvm (https://github.com/nvm-sh/nvm)
@@ -1479,6 +1480,11 @@
     p10k segment -b 1 -f 3 -i '⭐' -t 'hello, %n'
   }
 
+  function prompt_my_aws_vault_profile() {
+    if [[ -n $AWS_VAULT_PROFILE ]]; then
+      p10k segment -b yellow -f black -i '' -t "${AWS_VAULT_PROFILE//\%/%%}"
+    fi
+  }
   # User-defined prompt segments may optionally provide an instant_prompt_* function. Its job
   # is to generate the prompt segment for display in instant prompt. See
   # https://github.com/romkatv/powerlevel10k/blob/master/README.md#instant-prompt.
