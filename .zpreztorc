@@ -39,6 +39,7 @@ zstyle ':prezto:load' pmodule \
   'history-substring-search' \
   'python' \
   'homebrew' \
+  'node' \
   'syntax-highlighting' \
   'prompt'
 
