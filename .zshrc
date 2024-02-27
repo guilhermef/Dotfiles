@@ -25,6 +25,10 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 eval $(thefuck --alias)
 
-eval "$(rbenv init -)"
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
-export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
+if command -v rbenv &> /dev/null
+then
+  eval "$(rbenv init -)"
+  export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+  export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
+fi
+
