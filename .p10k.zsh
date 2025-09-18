@@ -44,7 +44,7 @@
     my_aws_vault_profile
     # =========================[ Line #2 ]=========================
     newline                 # \n
-    # prompt_char           # prompt symbol
+    prompt_char           # prompt symbol
   )
 
   # The list of segments shown on the right. Fill it with less important segments.
@@ -1144,7 +1144,7 @@
   #############[ kubecontext: current kubernetes context (https://kubernetes.io/) ]#############
   # Show kubecontext only when the the command you are typing invokes one of these tools.
   # Tip: Remove the next line to always show kubecontext.
-  typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|helm|kubens|kubectx|oc'
+  typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|helm|kubens|kubectx|oc|k9s'
 
   # Kubernetes context classes for the purpose of using different colors, icons and expansions with
   # different contexts.
@@ -1171,11 +1171,12 @@
   #
   #   typeset -g POWERLEVEL9K_KUBECONTEXT_TEST_FOREGROUND=0
   #   typeset -g POWERLEVEL9K_KUBECONTEXT_TEST_BACKGROUND=2
-  #   typeset -g POWERLEVEL9K_KUBECONTEXT_TEST_VISUAL_IDENTIFIER_EXPANSION='⭐'
-  #   typeset -g POWERLEVEL9K_KUBECONTEXT_TEST_CONTENT_EXPANSION='> ${P9K_CONTENT} <'
+  typeset -g POWERLEVEL9K_KUBECONTEXT_NONPROD_VISUAL_IDENTIFIER_EXPANSION='🧪'
+  typeset -g POWERLEVEL9K_KUBECONTEXT_PROD_VISUAL_IDENTIFIER_EXPANSION='💎'
+  typeset -g POWERLEVEL9K_KUBECONTEXT_NONPROD_CONTENT_EXPANSION='> ${P9K_CONTENT} <'
   typeset -g POWERLEVEL9K_KUBECONTEXT_CLASSES=(
-      # '*prod*'  PROD    # These values are examples that are unlikely
-      # '*test*'  TEST    # to match your needs. Customize them as needed.
+      'prd*'  PROD    # These values are examples that are unlikely
+      'np*'  NONPROD    # to match your needs. Customize them as needed.
       '*'       DEFAULT)
   typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_FOREGROUND=7
   typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_BACKGROUND=5
@@ -1221,14 +1222,14 @@
   #   - P9K_KUBECONTEXT_CLOUD_ACCOUNT=123456789012
   #   - P9K_KUBECONTEXT_CLOUD_ZONE=us-east-1
   #   - P9K_KUBECONTEXT_CLOUD_CLUSTER=my-cluster-01
-  typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_CONTENT_EXPANSION=
+  # typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_CONTENT_EXPANSION=
   # Show P9K_KUBECONTEXT_CLOUD_CLUSTER if it's not empty and fall back to P9K_KUBECONTEXT_NAME.
   POWERLEVEL9K_KUBECONTEXT_DEFAULT_CONTENT_EXPANSION+='${P9K_KUBECONTEXT_CLOUD_CLUSTER:-${P9K_KUBECONTEXT_NAME}}'
   # Append the current context's namespace if it's not "default".
   POWERLEVEL9K_KUBECONTEXT_DEFAULT_CONTENT_EXPANSION+='${${:-/$P9K_KUBECONTEXT_NAMESPACE}:#/default}'
 
   # Custom prefix.
-  typeset -g POWERLEVEL9K_KUBECONTEXT_PREFIX='at '
+  typeset -g POWERLEVEL9K_KUBECONTEXT_PREFIX='󱃾 at '
 
   #[ aws: aws profile (https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html) ]#
   # Show aws only when the the command you are typing invokes one of these tools.

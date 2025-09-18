@@ -22,9 +22,6 @@ export PATH=${HOME}/bin:${PATH}
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-
-eval $(thefuck --alias)
-
 if command -v rbenv &> /dev/null
 then
   eval "$(rbenv init -)"
