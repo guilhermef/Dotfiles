@@ -22,10 +22,4 @@ export PATH=${HOME}/bin:${PATH}
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-if command -v rbenv &> /dev/null
-then
-  eval "$(rbenv init -)"
-  export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
-  export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
-fi
-
+eval "$(/opt/homebrew/bin/mise activate)"
